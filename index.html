@@ -1,0 +1,39 @@
+
+<body></body>
+<script>
+  let x = 0
+  let y = 0
+  let gif
+  
+  function createGif (x, y){
+    gif = document.createElement('img')
+    gif.src = 'monke.gif'
+    document.body.appendChild(gif)
+    gif.style.position = 'absolute'
+    gif.style.left = x + 'px'
+    gif.style.top = y + 'px'
+  }
+	
+  const gifWidth = 45
+  const gifHeight = 45
+  const gifOffsetX = 50
+  const gifOffsetY = 50
+  const numCol = window.innerWidth / gifWidth
+  const numRow = window.innerHeight / gifHeight
+
+  function setup(){
+    document.body.style.backgroundColor = 'hsl(202, 84%, 61%)'
+  	document.body.style.overflow = 'hidden'
+    
+    for (let r = 0; r < numRow; r++){
+      for (let c = 0; c < numCol; c++){
+        const x = c * gifWidth - gifOffsetX
+        const y = r * gifHeight - gifOffsetY
+        createGif(x, y)
+      }
+    }
+  }
+  
+  window.addEventListener('load', setup)
+  
+</script>
