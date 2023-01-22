@@ -3,29 +3,50 @@
 <script>
   let xOffset = 75
   let yOffset = 75
-  let x = window.innerWidth / (2 - xOffset)
-  let y = window.innerHeight / (2- yOffset)
-  let theta = 0
+  let cx = window.innerWidth / 2 - xOffset
+  let cy = window.innerHeight / 2- yOffset
+  let x = 0
+  let y = 0
+  // let theta = 0
+  // let radius = 100
   let gif
   
-  function setup {
-    document.body.style.backgroundColor = 'hsl(202, 84%, 61%)'
-  	document.body.style.overflow = 'hidden'
+  function createGif(x, y) {
     gif = document.createElement('img')
-    gif.src = 'monke.gif'
+    gif.src = 'monke.gif' + '#' + Math.random()
     document.body.appendChild(gif)
     gif.style.position = 'absolute'
     gif.style.left = x + 'px'
     gif.style.top = y + 'px'
-    draw()
   }
 
-  function draw (){
+  function draw () {
     requestAnimationFrame(draw)
-    y = Math.sin(theta)
-    gif.style.top = y + 'px'
+    theta += 0.038
+    x = Math.cos(theta) * radius + cx
+    y = Math.sin(theta) * radius + cy
   }
   
+  function createGifCircle (num, scale, radius) {
+    for (let i = 0; i < num; i++){
+      x = Math.sin(i * scale) * radius + cx
+    	y = Math.cos(i * scale) * radius + cy
+      createGif(x,y)
+    }
+  }
+  
+  function setup() {
+  	document.body.style.backgroundColor = 'hsl(202, 84%, 61%)'
+  	document.body.style.overflow = 'hidden'
+    createGifCircle(50, 0.4, 200)
+    setTimeout(createGifCircle, 1000, 22, 0.3, 175)
+    setTimeout(createGifCircle, 2000, 22, 0.3, 150)
+    setTimeout(createGifCircle, 3000, 22, 0.3, 125)
+    setTimeout(createGifCircle, 4000, 22, 0.3, 100)
+    setTimeout(createGifCircle, 4000, 22, 0.3, 100)
+    setTimeout(createGifCircle, 5000, 22, 0.3, 75)
+  }
+
   window.addEventListener('load', setup)
   
 </script>
