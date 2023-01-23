@@ -13,6 +13,14 @@
     let radius = 100
     let gif
     const gifWidth = 100
+    const btn = document.querySelector('#btn')
+    
+    function bgColor (){
+    	const r = Math.random() * 255
+      const g = Math.random() * 255
+      const b = Math.random() * 255
+      document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
+    }
 
     function createGif(x, y) {
       gif = document.createElement('img')
@@ -63,6 +71,7 @@
 		window.addEventListener('mouseover', shrink)
   	window.addEventListener('mouseout', expand)
     window.addEventListener('load', setup)
+    btn.addEventListener('click', bgColor)
 
   </script>
 </body>
