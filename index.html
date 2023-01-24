@@ -48,6 +48,18 @@
       }
     }
     
+    function createBackDrop (num) {
+      for (let i = 0; i < num; i++){
+        bg = document.createElement('img')
+        bg.src = 'monke3.gif' + '#' + Math.random()
+        document.body.appendChild(bg)
+        bg.style.position = 'absolute'
+        bg.style.left = x + 'px'
+        bg.style.top = 50 + 'px'
+        x+=75
+      }
+    }
+    
     function shrink (e) {
       e.target.style.width = '350px'
     }
@@ -64,7 +76,7 @@
 
     function setup() {
       document.body.style.backgroundColor = 'hsl(202, 84%, 61%)'
-      document.body.style.overflow = 'hidden'
+      createBackDrop(10)
       createGifCircle(50, 0.4, 200)
       setTimeout(createGifCircle, 1000, 22, 0.3, 175)
       setTimeout(createGifCircle, 2000, 22, 0.3, 150)
@@ -75,8 +87,9 @@
     
 		window.addEventListener('mouseover', shrink)
   	window.addEventListener('mouseout', expand)
-    window.addEventListener('load', setup)
     btn.addEventListener('click', bgColor)
+    window.addEventListener('load', setup)
+
 
   </script>
 </body>
