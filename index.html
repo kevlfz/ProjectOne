@@ -20,8 +20,6 @@
     let cy = window.innerHeight / 2- yOffset
     let x = 0
     let y = 0
-    let theta = 0
-    let radius = 100
     let gif
     const gifWidth = 100
     const btn = document.querySelector('#btn')
@@ -42,13 +40,6 @@
       gif.style.top = y + 'px'
     }
 
-    function draw () {
-      requestAnimationFrame(draw)
-      theta += 0.038
-      x = Math.cos(theta) * radius + cx
-      y = Math.sin(theta) * radius + cy
-    }
-
     function createGifCircle (num, scale, radius) {
       for (let i = 0; i < num; i++){
         x = Math.sin(i * scale) * radius + cx
@@ -58,7 +49,7 @@
     }
     
     function shrink (e) {
-      e.target.style.width = '150px'
+      e.target.style.width = '350px'
     }
     
     function expand (e) {
@@ -68,7 +59,7 @@
       // gif.style.top = Math.sin(theta) * radius + cy
       setTimeout(() => {
         e.target.style.width = gifWidth + 'px'
-      }, 850)
+      }, 300)
     }
 
     function setup() {
