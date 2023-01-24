@@ -47,10 +47,14 @@
     }
     
     function shrink (e) {
-      e.target.style.width = '0px'
+      e.target.style.width = '150px'
     }
     
     function expand (e) {
+      // requestAnimationFrame(draw)
+      // theta += 0.038
+      // gif.style.left = Math.cos(theta) * radius + cx
+      // gif.style.top = Math.sin(theta) * radius + cy
       setTimeout(() => {
         e.target.style.width = gifWidth + 'px'
       }, 850)
@@ -63,7 +67,6 @@
       setTimeout(createGifCircle, 1000, 22, 0.3, 175)
       setTimeout(createGifCircle, 2000, 22, 0.3, 150)
       setTimeout(createGifCircle, 3000, 22, 0.3, 125)
-      setTimeout(createGifCircle, 4000, 22, 0.3, 100)
       setTimeout(createGifCircle, 4000, 22, 0.3, 100)
       setTimeout(createGifCircle, 5000, 22, 0.3, 75)
     }
